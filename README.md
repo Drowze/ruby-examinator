@@ -4,18 +4,24 @@ Basic Ruby program to grade code-based tests or exams.
 
 ## What will work?
 
+WARNING: The code is still a WIP and has only a few functions avaible. It does not actually grade exams (yet)
+
 This program should work with almost any text output. However, since the code use paragraphs idea to separe the inputs and outputs, it will not work if the desired input or output has an empty line besides the ending one.
 
-An example of valid output:
-`0 1 0 
-0 1 0 
-0 1 0`
+An example of valid output:  
+```
+0 1 0
+0 1 0
+0 1 0
+```
 
-An invalid one:
-`0 1 0 
+An invalid one:  
+```
+0 1 0
 0 1 0
 
-0 1 0`
+0 1 0
+```
 
 ## Installation and Usage
 
