@@ -1,0 +1,19 @@
+# What to do with data
+preserve_binaries: true
+preserve_outputs: false
+
+# Compiler/interpreter
+compiler: 'g++'
+compiler_parameters: '-w' # (ommit the -o parameter)
+binary_extension: '.exe' # if no extension, use ''
+
+# Desired inputs and outputs:
+inputs_location: './data/inputs.txt'
+outputs_location: './data/outputs.txt'
+
+# Sources directory
+source_files_directory: './data/sources/'
+
+# Results directory:
+tested_outputs_directory: './results/outputs/'
+tested_binaries_directory: './results/bin/'
