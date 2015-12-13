@@ -1,19 +1,20 @@
 # What to do with data
-preserve_binaries: true
-preserve_outputs: false
+preserve_bins: true
+preserve_outs: true
 
 # Compiler/interpreter
 compiler: 'g++'
 compiler_parameters: '-w' # (ommit the -o parameter)
 binary_extension: '.exe' # if no extension, use ''
+ex: './' # to execute the program/script. e.g.: 'ruby ', './', 'java '...
 
 # Desired inputs and outputs:
 inputs_location: './data/inputs.txt'
 outputs_location: './data/outputs.txt'
 
 # Sources directory
-source_files_directory: './data/sources/'
+source_dir: './data/sources/'
 
 # Results directory:
-tested_outputs_directory: './results/outputs/'
-tested_binaries_directory: './results/bin/'
+tested_outputs_dir: './results/outputs/'
+tested_binaries_dir: './results/bin/'

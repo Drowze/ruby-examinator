@@ -20,7 +20,7 @@ outputs = InOutParser.parse_paragraphs(cfg['outputs_location'])
 # InOutParser.cute_print(outputs, 0.5)
 
 # Getting an array containing all the source files:
-source_files = Dir.entries(cfg['source_files_directory'])
+source_files = Dir.entries(cfg['source_dir'])
 source_files.select! { |a| a != '.' && a != '..' }
 
 
