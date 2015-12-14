@@ -25,10 +25,15 @@ An invalid one:
 
 ## Installation and Usage
 
-Having Ruby preinstalled (tested with version 2.2.3p173),
+Having Ruby preinstalled (tested with version 2.2.3p173)  
+Dependences: colorize (I like colors, I'm sorry) (shouln't be hard to modify the source though)
 
 0. $ git clone https://github.com/Drowze/ruby-examinator.git && cd ruby-examinator
 1. Copy both inputs.txt and outputs into sources folder
 2. Put the source codes to be tested (e.g.: the students')
 3. Set your boolean options (to-do: command-line options)
 4. $ ruby examinator.rb
+
+## Examples
+
+There are valid inputs and outputs examples, as well as three simple C/C++ source files, used for testing. Feel free to discard them.

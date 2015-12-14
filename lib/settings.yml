@@ -1,6 +1,13 @@
+# Desired inputs and outputs (copy them manually to the folder):
+inputs_dir: './data/inputs.txt'
+outputs_dir: './data/outputs.txt'
+
+# Sources directory (copy them manually to the folder):
+source_dir: './data/sources/'
+
 # What to do with data
-preserve_bins: true
-preserve_outs: true
+preserve_bins: false
+preserve_outs: false
 
 # Compiler/interpreter
 compiler: 'g++'
@@ -9,13 +16,7 @@ bin_extension: '.exe' # if no extension, use ''
 ex: './' # to execute the program/script. e.g.: 'ruby ', './', 'java '...
 error: ['not found', 'error'] # strings contained in the error message TO-DO: implement this
 time_amount: 3 # time amount before timeout. Default: 3
-
-# Desired inputs and outputs:
-inputs_location: './data/inputs.txt'
-outputs_location: './data/outputs.txt'
-
-# Sources directory
-source_dir: './data/sources/'
+timeout_break: true # Suspend any more testigs on a file after a timeout
 
 # Results directory:
 tested_out_dir: './results/outputs/'

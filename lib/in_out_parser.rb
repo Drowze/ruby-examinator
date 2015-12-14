@@ -30,13 +30,13 @@ module InOutParser
 
     inputs[-1] = inputs[-1].chomp('') + "\n"
 
-    return inputs
+    inputs
   end
 
-  def self.cute_print(array, time=1)
+  def self.cute_print(array, time = 1)
     array.each_with_index do |x, i|
-      system("clear"); 
-      puts "Iteration #{i+1}", x
+      system('clear')
+      puts "Iteration #{i + 1}", x
       sleep time
     end
   end
