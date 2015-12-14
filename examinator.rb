@@ -15,13 +15,14 @@ InOutParser.newlines_converter(cfg['outputs_dir'])
 inputs = InOutParser.parse_paragraphs(cfg['inputs_dir'])
 outputs = InOutParser.parse_paragraphs(cfg['outputs_dir'])
 
-# Getting an array containing all the source files:
+## Getting an array containing all the source files:
 source_files = Dir.entries(cfg['source_dir'])
 source_files.select! { |a| a != '.' && a != '..' }
 
-# Executing them and comparing to the outputs:
+## Executing them and comparing to the outputs:
 comp_compare = CompilerComparer.new(cfg)
-Processor.compile_and_compare(inputs, outputs, source_files, cfg, comp_compare)
+proc = Processor.new(cfg)
+proc.compile_and_compare(inputs, outputs, source_files, comp_compare)
 `rm -r temp`
 
 # Useful for debugging.

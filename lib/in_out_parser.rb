@@ -33,6 +33,7 @@ module InOutParser
     inputs
   end
 
+  # TO-DO: maybe implement to be able to print more stuf below?
   def self.cute_print(array, time = 1)
     array.each_with_index do |x, i|
       system('clear')

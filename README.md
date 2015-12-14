@@ -37,3 +37,9 @@ Dependences: colorize (I like colors, I'm sorry) (shouln't be hard to modify the
 ## Examples
 
 There are valid inputs and outputs examples, as well as three simple C/C++ source files, used for testing. Feel free to discard them.
+
+## To the future...
+
+Ambitious goals include:  
+1. "Is the output absurd?", a machine learning-based way of reporting absurd methods.  
+2. Full debug logs, pretty formated (just because)  
