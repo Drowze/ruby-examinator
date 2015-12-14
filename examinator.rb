@@ -2,6 +2,7 @@ require 'yaml'
 require 'colorize'
 require_relative './lib/in_out_parser.rb'
 require_relative './lib/processor.rb'
+require_relative './lib/compiler_comparer.rb'
 
 ## Loading configurations
 cfg = YAML::load_file "./lib/settings.yml"
@@ -25,10 +26,9 @@ source_files.select! { |a| a != '.' && a != '..' }
 
 
 # Executing them and comparing to the outputs:
-Processor.compile_and_compare(inputs, outputs, source_files, cfg)
+comp_compare = CompilerComparer.new(cfg)
+Processor.compile_and_compare(inputs, outputs, source_files, cfg, comp_compare)
 
 #`rm -r temp`
 
-# # snippet on how to get timeout on a faulty code:
-# Timeout.timeout(1) { `gcc faulty_code.c < some_input` }
-# # => Timeout::Error: execution expired
+

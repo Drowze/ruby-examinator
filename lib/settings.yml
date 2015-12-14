@@ -4,9 +4,11 @@ preserve_outs: true
 
 # Compiler/interpreter
 compiler: 'g++'
-compiler_parameters: '-w' # (ommit the -o parameter)
-binary_extension: '.exe' # if no extension, use ''
+compiler_params: '-w' # (ommit the -o parameter)
+bin_extension: '.exe' # if no extension, use ''
 ex: './' # to execute the program/script. e.g.: 'ruby ', './', 'java '...
+error: ['not found', 'error'] # strings contained in the error message TO-DO: implement this
+time_amount: 3 # time amount before timeout. Default: 3
 
 # Desired inputs and outputs:
 inputs_location: './data/inputs.txt'
@@ -16,5 +18,5 @@ outputs_location: './data/outputs.txt'
 source_dir: './data/sources/'
 
 # Results directory:
-tested_outputs_dir: './results/outputs/'
-tested_binaries_dir: './results/bin/'
+tested_out_dir: './results/outputs/'
+tested_bin_dir: './results/bin/'
