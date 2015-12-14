@@ -31,7 +31,7 @@ Dependences: colorize (I like colors, I'm sorry) (shouln't be hard to modify the
 0. $ git clone https://github.com/Drowze/ruby-examinator.git && cd ruby-examinator
 1. Copy both inputs.txt and outputs into sources folder
 2. Put the source codes to be tested (e.g.: the students')
-3. Set your boolean options (to-do: command-line options)
+3. Adjusts the settings to your like (lib/settings.yml)
 4. $ ruby examinator.rb
 
 ## Examples
