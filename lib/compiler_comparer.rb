@@ -3,7 +3,7 @@ class CompilerComparer
     @cfg = cfg
   end
 
-  def run_compiler(source, compiler_output)
+  def compile(source, compiler_output)
     cmd = "#{@cfg['compiler']} #{@cfg['source_dir']}#{source}"\
           " #{@cfg['compiler_params']} -o #{compiler_output}"
     ret = true

@@ -43,3 +43,4 @@ There are valid inputs and outputs examples, as well as three simple C/C++ sourc
 Ambitious goals include:  
 1. "Is the output absurd?", a machine learning-based way of reporting absurd methods.  
 2. Full debug logs, pretty formated (just because)  
+3. Test cases using MiniTest framework (learning RSPec is a no-no)  

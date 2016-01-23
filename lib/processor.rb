@@ -27,7 +27,7 @@ class Processor
         compiler_output, file_output = FolderProcessor.parse_outputs @cfg, source, counter
 
         # Run the compiler and get the output
-        if comp_compare.run_compiler source, compiler_output
+        if comp_compare.compile source, compiler_output
           contents = comp_compare.exec_bin compiler_output
         else
           puts "File #{source} not compiling".red
@@ -49,7 +49,8 @@ class Processor
                   'score' => score,
                   'no_tests' => inputs.size }
     end
-    puts(scores.map { |k| "#{k['file']}\tScore: #{k['score']}/#{k['no_tests']}".blue }.sort)
+
+    puts report_results(scores).sort
   end
 
   def input_to_temp(input)
@@ -62,5 +63,13 @@ class Processor
     return nil unless contents
     return true if contents == outputs[counter]
     false
+  end
+
+  def report_results(scores)
+    ret = []
+    scores.map do |k| 
+      ret << "#{k['file']}\tScore: #{k['score']}/#{k['no_tests']}" + "\n"
+    end
+    ret
   end
 end
