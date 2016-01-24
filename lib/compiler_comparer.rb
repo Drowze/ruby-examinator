@@ -20,6 +20,9 @@ class CompilerComparer
   end
 
   # I know this is cryptic and I am sorry for that.
+  # Basically: if ret = nil: we got a timeout
+  #            if ret = false: we got a compilation error
+  #            else ret = the output
   def exec_bin(compiler_output)
     cmd = "#{@cfg['ex']}#{compiler_output} < temp/input_temp.txt"
     ret = ''

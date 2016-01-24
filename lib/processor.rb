@@ -18,6 +18,8 @@ class Processor
       puts "On file #{source} now..."
       FolderProcessor.create_personal_folders @cfg, source if @cfg['preserve_outs']
       score = 0
+      timeouts = ''
+      result = ''
 
       inputs.each_with_index do |input, counter|
         # To redirect an input, the input must be in a separate file
@@ -30,7 +32,8 @@ class Processor
         if comp_compare.compile source, compiler_output
           contents = comp_compare.exec_bin compiler_output
         else
-          puts "File #{source} not compiling".red
+          # puts "File #{source} not compiling".red
+          result = 'not compiling'.red
           break
         end
 
@@ -38,16 +41,21 @@ class Processor
         when true
           score += 1
           comp_compare.save_output source, file_output, contents if @cfg['preserve_outs']
-          # puts "Output #{counter} is working on #{source}".green
+          puts "Output #{counter} is working on #{source}".green
         when nil
-          puts "#{source} got a timeout at output #{counter + 1}".red
+          # puts "#{source} got a timeout at output #{counter + 1}".red
+          timeouts << "#{counter + 1} ".red
+          timeouts << '| aborted by option' if @cfg['timeout_break']
           break if @cfg['timeout_break']
         end
       end
 
       scores << { 'file' => source.split('.')[0],
                   'score' => score,
-                  'no_tests' => inputs.size }
+                  'no_tests' => inputs.size,
+                  'timeouts' => timeouts,
+                  'result' => result
+                }
     end
 
     puts report_results(scores).sort
@@ -67,8 +75,16 @@ class Processor
 
   def report_results(scores)
     ret = []
-    scores.map do |k| 
-      ret << "#{k['file']}\tScore: #{k['score']}/#{k['no_tests']}" + "\n"
+    scores.map do |k|
+      if k['timeouts'].size != 0
+        ret << "#{k['file']}"\
+               "\tScore: #{k['score']}/#{k['no_tests']}" + \
+               "\tinputs with timeout: #{k['timeouts']}".red
+      else
+        ret << "#{k['file']}"\
+               "\tScore: #{k['score']}/#{k['no_tests']}"\
+               "\t#{k['result']}\n"
+      end
     end
     ret
   end

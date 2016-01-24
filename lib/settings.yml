@@ -6,8 +6,8 @@ outputs_dir: './data/outputs.txt'
 source_dir: './data/sources/'
 
 # What to do with data
-preserve_bins: true
-preserve_outs: true
+preserve_bins: false
+preserve_outs: false
 
 # Verbose options (text on terminal)
 verbose_out_results: 0 # 0: false, 1: only succesful outputs, 2: only wrong outputs, 3: both  
